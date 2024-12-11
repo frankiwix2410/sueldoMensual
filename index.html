@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Sueldo Mensual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora de Sueldo Mensual</h1>
+    
+    <label for="horasTrabajadas">Horas Trabajadas:</label>
+    <input type="number" id="horasTrabajadas" >
+    
+    <label for="precioHora">Precio por Hora:</label>
+    <input type="number" id="precioHora" >
+    
+    <label for="bonificacion">Bonificación:</label>
+    <input type="number" id="bonificacion">
+    
+    <button onclick="calcularSueldo()">Calcular Sueldo</button>
+    
+    <h2 id="resultado">Sueldo Total: $0</h2>
+  </div>
+  <script>
+    function calcularSueldo() {
+
+      const horasTrabajadas = parseFloat(document.getElementById("horasTrabajadas").value) || 0;
+      const precioHora = parseFloat(document.getElementById("precioHora").value) || 0;
+      const bonificacion = parseFloat(document.getElementById("bonificacion").value) || 0;
+      
+    
+      const sueldoBase = horasTrabajadas * precioHora;
+      const sueldoTotal = sueldoBase + bonificacion;
+      
+
+      document.getElementById("resultado").innerText = `Sueldo Total: $${sueldoTotal.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
